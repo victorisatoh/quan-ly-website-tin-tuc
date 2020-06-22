@@ -1,0 +1,33 @@
+<!-- from passport-config -->
+<% if (messages.error) { %>
+<% messages.error.forEach(e => { %>
+<div class="alert alert-danger" role="alert">
+    <%= messages.error %>
+</div>
+<% }) %>
+<% } %>
+
+<!-- from express-flash -->
+<% if (messages.error_msg) { %>
+<% messages.error_msg.forEach(error_msg => { %>
+<div class="alert alert-danger" role="alert">
+    <%= error_msg %>
+</div>
+<% }) %>
+<% } %>
+
+<% if (messages.warning_msg) { %>
+<% messages.warning_msg.forEach(warning_msg => { %>
+<div class="alert alert-warning" role="alert">
+    <%= warning_msg %>
+</div>
+<% }) %>
+<% } %>
+
+<% if (messages.success_msg) { %>
+<% messages.success_msg.forEach(success_msg => { %>
+<div class="alert alert-success" role="alert">
+    <%= success_msg %>
+</div>
+<% }) %>
+<% } %>

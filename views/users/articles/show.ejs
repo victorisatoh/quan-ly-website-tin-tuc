@@ -1,0 +1,33 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <a href="/users/articles" class="btn btn-secondary">Tất cả bài viết</a>
+  <a href="/users/articles/edit/<%= article.id%>" class="btn btn-info">Chỉnh sửa</a>
+  <a href="/users/articles/new" class="btn btn-success">Tạo bài viết mới</a>
+
+  <div class="card mb-3 mt-4">
+    <img class="img-fluid rounded mx-auto d-block mt-4" style="max-width: 600px;" src="<%= article.coverImagePath %>"
+      alt="Cover image of article" />
+    <div class="card-body">
+      <h3 class="card-title"><%= article.title %></h3>
+      <div class="card-subtitle mb-2 text-muted">
+        <span>Tác giả: </span><%= article.author %>
+      </div>
+      <div class="card-subtitle mb-2 text-muted">
+        <span>Danh mục: </span><%= article.category %>
+      </div>
+      <div class="card-subtitle mb-2 text-muted">
+        <span>Ngày viết: </span><%= article.createdAt.toLocaleDateString() %>
+      </div>
+      <div class="card-subtitle mb-2 text-muted">
+        <span>Mô tả: </span><%= article.description %>
+      </div>
+      <div id="singleArticle">
+        <p class="card-text"><%- article.sanitizedHTML %></p>
+      </div>
+      <p class="card-text">
+        <small class="text-muted">Last updated <%= article.createdAt.toLocaleString() %></small>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- /.container-fluid -->

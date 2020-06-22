@@ -1,0 +1,84 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Tips sử dụng hiệu quả</h1>
+  <p class="mb-4">
+    Tìm kiếm bất kì thông tin nào trong ô Search.
+  </p>
+  <div class="card-body">
+    <a href="/users/articles/new" class="btn btn-success">Tạo bài viết mới</a>
+  </div>
+  <!-- DataTales -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">
+        Danh sách bài viết
+      </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Tiêu đề</th>
+              <th>Danh mục</th>
+              <th>Ngày tạo</th>
+              <th>Tác giả</th>
+              <th>Mô tả</th>
+              <th>Bìa</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Tiêu đề</th>
+              <th>Danh mục</th>
+              <th>Ngày tạo</th>
+              <th>Tác giả</th>
+              <th>Mô tả</th>
+              <th>Bìa</th>
+              <th>Thao tác</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% articles.forEach(article => { %>
+            <tr>
+              <td><strong><%= article.title %></strong></td>
+              <td><%= article.category %></td>
+              <td><%= article.createdAt.toLocaleString() %></td>
+              <td><%= article.author %></td>
+              <td><%= article.description %></td>
+              <td>
+                <img style="min-width: 50px;" class="img-fluid rounded mx-auto d-block"
+                  src="<%= article.coverImagePath %>">
+              </td>
+              <td>
+                <ul class="list-inline mt-0 mb-0">
+                  <li class="list-inline-item">
+                    <a href="/users/articles/<%= article.slug %>" class="btn btn-primary mt-1 mb-1">
+                      <i class="fa fa-info"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="/users/articles/edit/<%= article.id %>" class="btn btn-info mt-1 mb-1">
+                      <i class="fa fa-edit"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <form action="/users/articles/<%= article.id %>?_method=DELETE" method="POST">
+                      <button type="submit" class="btn btn-danger mt-1 mb-1">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.container-fluid -->

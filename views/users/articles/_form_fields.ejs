@@ -1,0 +1,51 @@
+<div class="form-group">
+  <label for="title">Tiêu đề</label>
+  <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control" />
+</div>
+<div class="form-group">
+  <label for="description">Mô tả</label>
+  <textarea name="description" id="description" class="form-control">
+<%= article.description %></textarea>
+</div>
+
+<div class="row mb-3">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Ảnh bìa</h5>
+        <p class="card-text">Ảnh bìa cũ của bài viết</p>
+        <img class="card-img-top img-fluid rounded mx-auto d-block" src="<%= article.coverImagePath %>"
+          alt="Cover image of article">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Ảnh bìa mới cho bài viết</h5>
+        <p class="card-text">Đăng tải một ảnh bìa mới thay cho ảnh bên trái</p>
+        <label for="">Ảnh bia mới</label>
+        <input type="file" name="cover" class="filepond">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="category">Danh mục</label>
+  <select class="form-control" id="categorySelect" name="category">
+    <option disabled selected>Chọn danh mục</option>
+    <% categories.forEach(category => { %>
+    <option <% if (article.category == category.title) { %> selected <% } %>><%= category.title %></option>
+    <% }) %>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="markdown">Nội dung bai viêt (Viết bằng markdown)</label>
+  <textarea name="markdown" id="markdown" class="form-control" cols="20" rows="10">
+<%= article.markdown %></textarea>
+</div>
+
+<a href="/users/articles" class="btn btn-secondary">Hủy</a>
+<button type="submit" class="btn btn-primary">Lưu</button>

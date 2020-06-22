@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="title">Tên danh mục</label>
+  <input required value="<%= category.title %>" type="text" name="title" id="title" class="form-control" />
+</div>
+
+<div class="form-group">
+  <label for="description">Mô tả</label>
+  <textarea name="description" id="description" class="form-control">
+<%= category.description %></textarea>
+</div>
+
+<a href="/users/categories" class="btn btn-secondary">Hủy</a>
+<button type="submit" class="btn btn-primary">Lưu</button>
